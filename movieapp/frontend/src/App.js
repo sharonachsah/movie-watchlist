@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchMovies,
@@ -11,21 +11,18 @@ import {
 } from './redux/actions';
 import MovieList from './components/MovieList';
 import AddMovieForm from './components/AddMovieForm';
-import './index.css';
+import './index.css'; // Import CSS file
 
 const App = () => {
   const dispatch = useDispatch();
   const { movies, loading, error } = useSelector((state) => state);
-  const [setIsAdding] = useState(false);
 
   useEffect(() => {
     dispatch(fetchMovies());
   }, [dispatch]);
 
-  const handleAddMovie = async (movie) => {
-    setIsAdding(true);
-    await dispatch(addMovie(movie));
-    setIsAdding(false);
+  const handleAddMovie = (movie) => {
+    dispatch(addMovie(movie));
   };
 
   const handleEditMovie = (id, updates) => {
@@ -49,7 +46,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Movie Watchlist</h1>
       <AddMovieForm onAddMovie={handleAddMovie} />
       {loading && <p>Loading...</p>}

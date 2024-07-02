@@ -5,14 +5,18 @@ const AddMovieForm = ({ onAddMovie }) => {
     const [description, setDescription] = useState('');
     const [releaseYear, setReleaseYear] = useState('');
     const [genre, setGenre] = useState('');
+    const [rating, setRating] = useState(0);
+    const [review, setReview] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onAddMovie({ title, description, releaseYear, genre });
+        onAddMovie({ title, description, releaseYear, genre, rating, review });
         setTitle('');
         setDescription('');
         setReleaseYear('');
         setGenre('');
+        setRating(0);
+        setReview('');
     };
 
     return (
@@ -49,6 +53,23 @@ const AddMovieForm = ({ onAddMovie }) => {
                     value={genre}
                     onChange={(e) => setGenre(e.target.value)}
                 />
+            </div>
+            <div>
+                <label>Rating:</label>
+                <input
+                    type="number"
+                    value={rating}
+                    onChange={(e) => setRating(Number(e.target.value))}
+                    min="1"
+                    max="5"
+                />
+            </div>
+            <div>
+                <label>Review:</label>
+                <textarea
+                    value={review}
+                    onChange={(e) => setReview(e.target.value)}
+                ></textarea>
             </div>
             <button type="submit">Add Movie</button>
         </form>

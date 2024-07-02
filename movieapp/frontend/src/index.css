@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f0f0f0;
   margin: 0;
   padding: 0;
 }
@@ -8,53 +8,56 @@ body {
 h1 {
   text-align: center;
   margin-top: 20px;
-  color: #333;
-}
-
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form>div {
+form div {
   margin-bottom: 10px;
 }
 
 label {
-  font-weight: bold;
+  display: block;
   margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="number"],
+input,
 textarea {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 button {
+  display: inline-block;
   padding: 10px 15px;
-  border: none;
-  background-color: #007bff;
+  background-color: #28a745;
   color: white;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
+  opacity: 0.8;
+}
+
+button.edit {
+  background-color: #007bff;
+}
+
+button.delete {
+  background-color: #dc3545;
 }
 
 button:hover {
-  background-color: #0056b3;
+  opacity: 1.0;
 }
 
 ul {
@@ -63,44 +66,13 @@ ul {
 }
 
 li {
-  margin-bottom: 20px;
+  background-color: white;
+  margin: 10px;
   padding: 20px;
-  background-color: #fff;
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-li h2 {
-  margin-top: 0;
-}
-
-.movie-actions {
-  display: flex;
-  margin-top: 10px;
-}
-
-.movie-actions button:not(:last-child) {
-  margin-right: 10px;
-  /* Adds space between buttons */
-  margin-bottom: 10px;
-  /* Adds space between rows */
 }
 
 .movie-actions button {
-  background-color: #28a745;
-  opacity: 0.75;
-  text-decoration-color: black;
-}
-
-.movie-actions button.delete {
-  background-color: #dc3545;
-  size: inherit;
-}
-
-.movie-actions button.edit {
-  background-color: #ffc107;
-}
-
-.movie-actions button:hover {
-  opacity: 1.0;
+  margin-right: 5px;
 }

@@ -1,5 +1,4 @@
-import React, { useState, useCallback } from 'react';
-import _ from 'lodash';
+import React, { useState } from 'react';
 
 const MovieItem = ({ movie, onEditMovie, onDeleteMovie, onToggleWatched, onRateMovie, onReviewMovie }) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -8,13 +7,9 @@ const MovieItem = ({ movie, onEditMovie, onDeleteMovie, onToggleWatched, onRateM
         description: movie.description,
         releaseYear: movie.releaseYear,
         genre: movie.genre,
+        rating: movie.rating,
+        review: movie.review,
     });
-
-    // Debounced version of onRateMovie
-    const debouncedOnRateMovie = useCallback(_.debounce(onRateMovie, 200), []);
-
-    // Debounced version of onReviewMovie
-    const debouncedOnReviewMovie = useCallback(_.debounce(onReviewMovie, 200), []);
 
     const handleEditChange = (e) => {
         const { name, value } = e.target;
@@ -68,6 +63,25 @@ const MovieItem = ({ movie, onEditMovie, onDeleteMovie, onToggleWatched, onRateM
                             onChange={handleEditChange}
                         />
                     </div>
+                    <div>
+                        <label>Rating:</label>
+                        <input
+                            type="number"
+                            name="rating"
+                            value={editForm.rating}
+                            onChange={handleEditChange}
+                            min="1"
+                            max="5"
+                        />
+                    </div>
+                    <div>
+                        <label>Review:</label>
+                        <textarea
+                            name="review"
+                            value={editForm.review}
+                            onChange={handleEditChange}
+                        ></textarea>
+                    </div>
                     <button type="submit">Save</button>
                     <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
                 </form>
@@ -77,33 +91,14 @@ const MovieItem = ({ movie, onEditMovie, onDeleteMovie, onToggleWatched, onRateM
                     <p>{movie.description}</p>
                     <p>{movie.releaseYear}</p>
                     <p>{movie.genre}</p>
+                    <p>Rating: {movie.rating}</p>
+                    <p>Review: {movie.review}</p>
                     <div className="movie-actions">
                         <button onClick={() => onToggleWatched(movie._id, !movie.watched)}>
                             {movie.watched ? 'Mark as Unwatched' : 'Mark as Watched'}
                         </button>
                         <button className="edit" onClick={() => setIsEditing(true)}>Edit</button>
                         <button className="delete" onClick={() => onDeleteMovie(movie._id)}>Delete</button>
-                    </div>
-                    <div>
-                        <label>
-                            Rate:
-                            <input
-                                type="number"
-                                value={movie.rating}
-                                onChange={(e) => debouncedOnRateMovie(movie._id, Number(e.target.value))}
-                                min="1"
-                                max="5"
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Review:
-                            <textarea
-                                value={movie.review}
-                                onChange={(e) => debouncedOnReviewMovie(movie._id, e.target.value)}
-                            />
-                        </label>
                     </div>
                 </>
             )}
