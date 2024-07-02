@@ -1,0 +1,106 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+form>div {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+li h2 {
+  margin-top: 0;
+}
+
+.movie-actions {
+  display: flex;
+  margin-top: 10px;
+}
+
+.movie-actions button:not(:last-child) {
+  margin-right: 10px;
+  /* Adds space between buttons */
+  margin-bottom: 10px;
+  /* Adds space between rows */
+}
+
+.movie-actions button {
+  background-color: #28a745;
+  opacity: 0.75;
+  text-decoration-color: black;
+}
+
+.movie-actions button.delete {
+  background-color: #dc3545;
+  size: inherit;
+}
+
+.movie-actions button.edit {
+  background-color: #ffc107;
+}
+
+.movie-actions button:hover {
+  opacity: 1.0;
+}
