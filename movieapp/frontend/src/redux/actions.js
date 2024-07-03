@@ -11,7 +11,9 @@ export const DELETE_MOVIE = 'DELETE_MOVIE';
 export const TOGGLE_WATCHED = 'TOGGLE_WATCHED';
 export const RATE_MOVIE = 'RATE_MOVIE';
 export const REVIEW_MOVIE = 'REVIEW_MOVIE';
-export const BASE_URI = 'http://localhost:5000/api/movies'
+
+
+export const BASE_URI = `${process.env.RENDER_URL}/api/movies`
 
 // Action Creators
 export const fetchMovies = () => async (dispatch) => {
