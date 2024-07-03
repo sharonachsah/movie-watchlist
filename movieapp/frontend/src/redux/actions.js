@@ -15,7 +15,7 @@ export const REVIEW_MOVIE = 'REVIEW_MOVIE';
 
 // dotenv.config();
 
-export const BASE_URI = 'https://movie-watchlist-backend-h2bf.onrender.com/movies/api/movies'
+export const BASE_URI = 'https://movie-watchlist-backend-h2bf.onrender.com/api/movies'
 
 // Action Creators
 export const fetchMovies = () => async (dispatch) => {
