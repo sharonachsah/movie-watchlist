@@ -1,4 +1,5 @@
 import axios from 'axios';
+const dotenv = require('dotenv');
 
 // Action Types
 export const FETCH_MOVIES_REQUEST = 'FETCH_MOVIES_REQUEST';
@@ -12,6 +13,7 @@ export const TOGGLE_WATCHED = 'TOGGLE_WATCHED';
 export const RATE_MOVIE = 'RATE_MOVIE';
 export const REVIEW_MOVIE = 'REVIEW_MOVIE';
 
+dotenv.config();
 
 export const BASE_URI = `${process.env.RENDER_URL}/api/movies`
 
